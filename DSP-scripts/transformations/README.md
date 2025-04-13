@@ -39,21 +39,21 @@ The process includes:
 
 ---
 
-### FFT_ADSL_Spectrum_Analysis.py
-This script analyzes an ADSL signal from the `ADSL.mat` file, which contains 8 frames of 512 samples each, preceded by a 32-sample prefix. The task involves:
-- Removing the prefix from each frame
-- Performing a 512-point FFT on the remaining data
-- Examining the resulting frequency spectrum to identify which harmonic frequencies are used in each frame
-- Visualizing the magnitude spectrum to determine the frequency components carrying data in the ADSL signal
-
----
-
 ### DTFT_FFT_ECG_Signal_Analysis_py
 This script analyzes the EKG signal from the `ECG100.mat` file. The goal is to determine the heart rate by performing both DFT and DtFT on the signal:
 - Use DFT (fft(x)) and DtFT to compute the frequency components
 - Plot the EKG signal with the time axis scaled in seconds
 - Show its spectra with the frequency axis scaled in Hertz
 - Display the spectra in both linear and decibel scales to observe heart rate frequencies
+
+---
+
+### FFT_ADSL_Spectrum_Analysis.py
+This script analyzes an ADSL signal from the `ADSL.mat` file, which contains 8 frames of 512 samples each, preceded by a 32-sample prefix. The task involves:
+- Removing the prefix from each frame
+- Performing a 512-point FFT on the remaining data
+- Examining the resulting frequency spectrum to identify which harmonic frequencies are used in each frame
+- Visualizing the magnitude spectrum to determine the frequency components carrying data in the ADSL signal
 
 ---
 
