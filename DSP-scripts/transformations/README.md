@@ -1,4 +1,4 @@
-### DFT of a Harmonic Signal
+### DFT_of_a_Harmonic_Signal
 This script calculates the Discrete Fourier Transform (DFT) matrix for a signal composed of two cosine waves with different frequencies. The signal is sampled at 1000 Hz with 100 samples, and includes:
 - A 100 Hz component
 - A 200 Hz component
@@ -13,7 +13,7 @@ The script performs the following:
 
 ---
 
-### Discrete-Time Fourier Transform (DtFT)
+### DTFT_Basics_Implementation.py
 This script analyzes the frequency content of a signal using three different methods:
 - Standard DFT (X1)
 - Zero-padded DFT for increased resolution (X2)
@@ -26,7 +26,7 @@ The process includes:
 
 ---
 
-### DtFT, Window Functions, and Sample Count
+### DTFT_Windowing_and_Resolution.py
 This script compares the DtFT of a signal consisting of two sinusoids (100 Hz and 125 Hz, with one much weaker) by applying different window functions:
 - Rectangular window
 - Hamming window
@@ -39,7 +39,7 @@ The process includes:
 
 ---
 
-### Frequency Analysis of ADSL Signal
+### FFT_ADSL_Spectrum_Analysis.py
 This script analyzes an ADSL signal from the `ADSL.mat` file, which contains 8 frames of 512 samples each, preceded by a 32-sample prefix. The task involves:
 - Removing the prefix from each frame
 - Performing a 512-point FFT on the remaining data
@@ -48,7 +48,7 @@ This script analyzes an ADSL signal from the `ADSL.mat` file, which contains 8 f
 
 ---
 
-### Analysis of Real-World Signal - ECG
+### DTFT_FFT_ECG_Signal_Analysis_py
 This script analyzes the EKG signal from the `ECG100.mat` file. The goal is to determine the heart rate by performing both DFT and DtFT on the signal:
 - Use DFT (fft(x)) and DtFT to compute the frequency components
 - Plot the EKG signal with the time axis scaled in seconds
@@ -57,7 +57,7 @@ This script analyzes the EKG signal from the `ECG100.mat` file. The goal is to d
 
 ---
 
-### Frequency Domain Filtering of Sound Signals
+### FFT_Sound_Signal_Filtering.py
 This script uses two sound signals with different frequency content:
 - A low-frequency signal (e.g., car engine)
 - A high-frequency signal (e.g., bird chirping)
