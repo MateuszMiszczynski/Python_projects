@@ -26,6 +26,15 @@ The process includes:
 
 ---
 
+### DTFT_FFT_ECG_Signal_Analysis_py
+This script analyzes the EKG signal from the `ECG100.mat` file. The goal is to determine the heart rate by performing both DFT and DtFT on the signal:
+- Use DFT (fft(x)) and DtFT to compute the frequency components
+- Plot the EKG signal with the time axis scaled in seconds
+- Show its spectra with the frequency axis scaled in Hertz
+- Display the spectra in both linear and decibel scales to observe heart rate frequencies
+
+---
+
 ### DTFT_Windowing_and_Resolution.py
 This script compares the DtFT of a signal consisting of two sinusoids (100 Hz and 125 Hz, with one much weaker) by applying different window functions:
 - Rectangular window
@@ -36,15 +45,6 @@ This script compares the DtFT of a signal consisting of two sinusoids (100 Hz an
 The process includes:
 - Plotting all spectra to observe how the window type affects visibility and leakage
 - Increasing the sample count to 1000 and comparing the effects of Chebyshev windows with different attenuation
-
----
-
-### DTFT_FFT_ECG_Signal_Analysis_py
-This script analyzes the EKG signal from the `ECG100.mat` file. The goal is to determine the heart rate by performing both DFT and DtFT on the signal:
-- Use DFT (fft(x)) and DtFT to compute the frequency components
-- Plot the EKG signal with the time axis scaled in seconds
-- Show its spectra with the frequency axis scaled in Hertz
-- Display the spectra in both linear and decibel scales to observe heart rate frequencies
 
 ---
 
