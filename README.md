@@ -19,7 +19,7 @@ This project demonstrates GUI design, file handling, data generation, and extern
 
 ---
 
-### 📈 `dsp-labs`
+### 📈 `dsp-scripts`
 A folder with Python code from **Digital Signal Processing** labs. It includes implementations of core DSP concepts and visualizations.
 
 **What’s inside:**
