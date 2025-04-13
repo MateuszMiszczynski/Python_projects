@@ -9,10 +9,3 @@ Tkinter CSV App is an application that allows you to generate, analyze, and sort
 - **Search Data**: Users can search data in the CSV file based on keywords and filter data, e.g., by gender (female names).
 
 - **Sort Data**: The application allows you to sort data in the CSV file by the selected column (e.g., first name, last name, item, price) in ascending or descending order.
-
-## Requirements
-
-- Python 3.x
-- `tkinter` library (included with Python)
-- `csv` library
-- `heapq` library
