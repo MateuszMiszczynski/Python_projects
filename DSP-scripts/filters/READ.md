@@ -1,7 +1,3 @@
-# DSP Scripts
-
-This repository contains Python scripts related to Digital Signal Processing (DSP). The scripts are designed to perform various DSP tasks such as filter design, signal analysis, and visualization of frequency responses. Below is a brief overview of each script included in the repository.
-
 ## Scripts Overview
 
 ### Filter_Design_Zero_Pole.py
