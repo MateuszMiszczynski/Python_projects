@@ -1,39 +1,41 @@
-Python Projects :
-This repository contains a collection of Python projects developed for learning and showcasing practical skills. It includes both GUI applications and algorithmic implementations.
+# 🐍 Python Projects Repository
 
-Projects Overview
-1. tkinter-csv-app
-A desktop application built using Tkinter, designed for working with CSV files. It allows users to:
+Welcome to my collection of Python projects! This repository gathers various apps and scripts built to explore programming concepts, sharpen my Python skills, and showcase my progress. Projects range from GUI-based apps to digital signal processing experiments.
 
-Generate synthetic CSV data with customizable entries.
+---
 
-Search & filter records by keyword or gender (female names).
+## 📂 Projects Included
 
-Sort CSV files externally by any column (e.g. name, price) in ascending or descending order.
+### 📊 `tkinter-csv-app`
+A desktop application with a graphical interface built using **Tkinter**, designed for working with CSV files.
 
-Useful for practicing GUI design, file I/O, and basic data processing in Python.
+**Key Features:**
+- ✅ Generate random CSV datasets (custom number of rows)
+- 🔍 Search and filter by keywords or female names
+- 🔃 Sort data externally by column (e.g., Name, Price, etc.)
+- 📁 Simple file dialog integration
 
-2. dsp-labs
-A collection of lab exercises and scripts related to Digital Signal Processing (DSP) using Python. These notebooks and scripts demonstrate concepts such as:
+This project demonstrates GUI design, file handling, data generation, and external sorting techniques.
 
-Discrete Fourier Transform (DFT) and Fast Fourier Transform (FFT)
+---
 
-Windowing (Rectangular, Hamming, Blackman, Chebyshev)
+### 📈 `dsp-labs`
+A folder with Python code from **Digital Signal Processing** labs. It includes implementations of core DSP concepts and visualizations.
 
-Spectrum analysis and visualization
+**What’s inside:**
+- ⚙️ Discrete and Fast Fourier Transforms (DFT & FFT)
+- 🪟 Windowing techniques (Hamming, Blackman, Chebyshev, etc.)
+- 🔍 Frequency spectrum analysis
+- ➕ Zero-padding and resolution enhancement
 
-Zero-padding and frequency resolution
+Perfect for combining theory with practice using Python’s scientific stack.
 
-Great for reinforcing signal processing theory with practical code.
+---
 
-Requirements
-Python 3.x
+## 📦 Requirements
 
-tkinter (comes with standard Python)
-
-numpy, matplotlib – for DSP plots (optional, used in dsp-labs)
-
-Standard libraries: csv, heapq, os, random, pathlib
-
-Purpose
-This repository is intended as a personal learning archive and a showcase of skills in Python programming, including GUI development and signal processing.
+- Python 3.x
+- **For `tkinter-csv-app`**:  
+  - Built-in: `tkinter`, `csv`, `os`, `random`, `heapq`, `pathlib`
+- **For `dsp-labs`** (some scripts):  
+  - `numpy`, `matplotlib` (for signal analysis and plotting)
