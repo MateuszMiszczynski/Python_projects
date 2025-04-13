@@ -32,7 +32,7 @@ Perfect for combining theory with practice using Python’s scientific stack.
 
 ---
 
-## 📦 Requirements
+## Requirements
 
 - Python 3.x
 - **For `tkinter-csv-app`**:  
