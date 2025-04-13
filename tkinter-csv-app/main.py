@@ -137,7 +137,7 @@ root = tk.Tk()
 root.title("Generator i Analizator CSV")
 
 # Generowanie pliku
-lines_label = tk.Label(root, text="Liczba wierszy:")
+lines_label = tk.Label(root, text="Liczba wierszy do wygenerowania [Imie,Nazwisko,Format dostawy,Przedmiot,Cena]:")
 lines_label.pack()
 lines_entry = tk.Entry(root)
 lines_entry.pack()
@@ -146,11 +146,13 @@ use_list_var = tk.BooleanVar()
 use_list_checkbox = tk.Checkbutton(root, text="Użyj listy zamiast generatora", variable=use_list_var)
 use_list_checkbox.pack()
 
-generate_button = tk.Button(root, text="Generuj CSV", command=generate_action)
+generate_button = tk.Button(root, text="Generuj plik CSV", command=generate_action)
+
+
 generate_button.pack()
 
 # Wybór pliku wejściowego
-input_label = tk.Label(root, text="Plik CSV:")
+input_label = tk.Label(root, text="Ścieżka do pliku CSV:")
 input_label.pack()
 input_entry = tk.Entry(root, width=50)
 input_entry.pack()
@@ -158,7 +160,7 @@ browse_button = tk.Button(root, text="Przeglądaj", command=lambda: browse_file(
 browse_button.pack()
 
 # Szukanie
-search_label = tk.Label(root, text="Szukaj:")
+search_label = tk.Label(root, text="Wpisz słowo klucz po którym chcesz szukać:")
 search_label.pack()
 search_entry = tk.Entry(root)
 search_entry.pack()
@@ -167,12 +169,12 @@ gender_var = tk.BooleanVar()
 gender_checkbox = tk.Checkbutton(root, text="Tylko imiona żeńskie", variable=gender_var)
 gender_checkbox.pack()
 
-search_button = tk.Button(root, text="Szukaj", command=search_action)
+search_button = tk.Button(root, text="Wygeneruj plik z wyszukanym kluczem", command=search_action)
 search_button.pack()
 
 # Sortowanie
 sort_options = ["Imię", "Nazwisko", "Forma dostawy", "Przedmiot", "Cena"]
-sort_label = tk.Label(root, text="Sortuj wg:")
+sort_label = tk.Label(root, text="Sortuj według:")
 sort_label.pack()
 sort_column = tk.StringVar(value=sort_options[4])
 sort_dropdown = tk.OptionMenu(root, sort_column, *sort_options)
@@ -182,7 +184,7 @@ order_var = tk.BooleanVar()
 order_checkbox = tk.Checkbutton(root, text="Malejąco", variable=order_var)
 order_checkbox.pack()
 
-sort_button = tk.Button(root, text="Sortuj", command=sort_action)
+sort_button = tk.Button(root, text="Wygeneruj posortowany plik ", command=sort_action)
 sort_button.pack()
 
 root.mainloop()
