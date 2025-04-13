@@ -1,23 +1,29 @@
-# DSP Scripts
+# Digital Signal Processing Scripts
 
-This directory contains scripts related to Digital Signal Processing (DSP) that were developed as part of laboratory exercises during my studies at AGH University of Krakow. Each lab consists of several tasks, and each task is focused on a specific concept or technique related to DSP.
+This directory contains Python scripts related to Digital Signal Processing (DSP) that were developed during laboratory exercises at AGH University of Krakow. The labs cover various techniques such as Fourier Transforms, Digital and Analog Filters, and their applications.
 
 ## Folder Structure
 
-- **Lab1/**: Contains scripts for tasks completed in Lab 1.
-- **Lab2/**: Contains scripts for tasks completed in Lab 2.
-- **Lab3/**: Contains scripts for tasks completed in Lab 3.
-- ...
+- **Transformations/**: This folder contains scripts related to transformations, such as Fourier Transforms and their applications (DFT, FFT).
+  
+- **Filters/**: This folder contains scripts for digital and analog filters, including FIR, IIR filters, and special filters like Hilbert and differentiating filters.
 
-Each task corresponds to an individual Python script (`task1.py`, `task2.py`, etc.), with comments and explanations inside the code.
+## Scripts Overview
 
-## Task Overview
+### Transformations
+- **Fourier_Transformations.py**: Basic implementation of Fourier Transforms (DFT and DtFT).
+- **DFT.py**: Script for applying the Discrete Fourier Transform (DFT).
+- **FFT.py**: Efficient Fast Fourier Transform (FFT) implementation.
+- **Applications_FFT.py**: Use cases of FFT in signal analysis.
 
-The tasks generally involve applying various signal processing techniques, such as:
+### Filters
+- **Analog_Filters.py**: Implementation of analog filters.
+- **Digital_Filters_IIR.py**: Recursive IIR digital filter implementation.
+- **Digital_Filters_FIR.py**: Non-recursive FIR digital filter implementation.
+- **FIR_Sampling_Frequency.py**: FIR filter for changing the sampling frequency.
+- **Adaptive_Filters_FIR.py**: Adaptive FIR filters for real-time signal processing.
 
-- Fourier Transforms (DFT, FFT)
-- Filtering
-- Signal analysis and visualization
-- Noise removal and data processing
-
-These tasks were completed using libraries like `numpy`, `scipy`, and `matplotlib`.
+## Libraries Used
+- **numpy**: Numerical operations for signal processing.
+- **scipy**: Signal processing tools for creating filters and handling transformations.
+- **matplotlib**: Visualization of signals and filter responses.
