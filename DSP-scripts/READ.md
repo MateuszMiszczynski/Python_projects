@@ -1,6 +1,6 @@
 # DSP Scripts
 
-This directory contains scripts related to Digital Signal Processing (DSP) that were developed as part of laboratory exercises during my studies at AGH University of Science and Technology. Each lab consists of several tasks, and each task is focused on a specific concept or technique related to DSP.
+This directory contains scripts related to Digital Signal Processing (DSP) that were developed as part of laboratory exercises during my studies at AGH University of Krakow. Each lab consists of several tasks, and each task is focused on a specific concept or technique related to DSP.
 
 ## Folder Structure
 
