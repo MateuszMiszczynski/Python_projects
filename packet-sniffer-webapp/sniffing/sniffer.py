@@ -11,12 +11,6 @@ def save_packet(packet):
 
     log_filename = f"logs/log_{datatime.now().strftime('%Y-%m-%d')}.json"
 
-    with open(log_filename, "a") as log_file:
-        json.dump(log_entry, log_file)
-        log_file.write("\n")
 
 
-# Funkcja do sniffowania pakietow
-def start_sniffing():
-    sniff(prn = save_packet, count = 10) # To znaczy żeby zbierał 10 pakietów, można modyfikować
 
