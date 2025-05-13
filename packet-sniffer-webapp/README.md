@@ -42,8 +42,6 @@
 - `requirements.txt`  
   Lists Python packages required to run the application.
 
-- `README.md`  
-  This documentation file (you’re reading it!).
 
 ---
 
