@@ -8,7 +8,7 @@ import time
 
 sniffing = False
 packet_buffer = []
-max_buffer_size = 10
+max_buffer_size = 100
 log_file = "logs/packet_log.json"
 
 
