@@ -22,6 +22,33 @@
 
 ---
 
+
+**Summary:**
+- `app.py`  
+  Launches the Flask server, renders the interface, and connects to the sniffing logic.
+  
+- `sniffer.py`  
+  Contains all functions for capturing and parsing network packets (DNS, HTTP, TCP, etc.). It logs the captured data as JSON.
+
+- `index.html`  
+  The user interface where you can start/stop capturing and download logs. It uses Jinja2 templating.
+
+- `styles.css`  
+  Defines the appearance of the dashboard (layout, buttons, fonts, etc.).
+
+- `logs/`  
+  Stores log files created during each capture session in JSON format.
+
+- `requirements.txt`  
+  Lists Python packages required to run the application.
+
+- `README.md`  
+  This documentation file (you’re reading it!).
+
+---
+
+
+
 ##  How to Run
 
 ```bash
