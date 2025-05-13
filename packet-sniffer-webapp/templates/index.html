@@ -1,35 +1,71 @@
 <!DOCTYPE html>
-<html lang = 'en'>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="15">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> My Packet Sniffer</title>
+    <title>My Packet Sniffer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+
+        .controls {
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
     <h1>Packet Sniffer Dashboard</h1>
-    <p>
-      <a href="/start">▶️ Start</a> | 
-      <a href="/stop">⏹️ Stop</a> | 
-      <a href="/packet_log.json" download>📥 Download Log</a>
-    </p>
-  
+    <div class="controls">
+        <a href="/start">▶️ Start</a> | 
+        <a href="/stop">⏹️ Stop</a> | 
+        <a href="/packet_log.json" download>📥 Download Log</a>
+    </div>
+
     <table>
-      <thead>
-        <tr><th>Time</th><th>Source</th><th>Destination</th><th>Protocol</th><th>Length</th></tr>
-      </thead>
-      <tbody>
-        {% for pkt in packets %}
-        <tr>
-          <td>{{ pkt.timestamp }}</td>
-          <td>{{ pkt.src }}</td>
-          <td>{{ pkt.dst }}</td>
-          <td>{{ pkt.proto }}</td>
-          <td>{{ pkt.length }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Protocol</th>
+                <th>Length</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pkt in packets %}
+                <tr>
+                    <td>{{ pkt.timestamp }}</td>
+                    <td>{{ pkt.src }}</td>
+                    <td>{{ pkt.dst }}</td>
+                    <td>{{ pkt.proto }}</td>
+                    <td>{{ pkt.length }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
     </table>
-  </body>
-  </html>
+</body>
+</html>
