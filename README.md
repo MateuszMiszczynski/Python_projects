@@ -5,6 +5,27 @@ Welcome to my collection of Python projects! This repository gathers various app
 ---
 
 
+### 🌐 `packet-sniffer-webapp`
+A web-based network packet sniffer built using **Flask** and **Scapy**. It allows you to monitor, classify, and log live network traffic through a clean web interface.
+
+**Key Features:**
+- ✅ Real-time packet capturing via Scapy
+- 🔍 Protocol detection: DNS, HTTP, TCP, UDP, ICMP
+- 🧵 Runs sniffing in a background thread (non-blocking Flask UI)
+- 📝 Logs traffic data to JSON (timestamp, IPs, protocol, length)
+- 🌐 Web dashboard with live updates and packet table
+- 📥 Log file download support
+
+**Tech Highlights:**
+- Python threading for asynchronous packet capture
+- Flask for frontend rendering (Jinja2 templates + static CSS)
+- JSON log format for structured data and further analysis
+
+This project showcases the integration of low-level network analysis with modern web development.
+
+---
+
+
 ### 📈 `DSP-scripts`
 A folder with Python code from **Digital Signal Processing** labs. It includes implementations of core DSP concepts and visualizations.
 
@@ -36,7 +57,10 @@ This project demonstrates GUI design, file handling, data generation, and extern
 ## Requirements
 
 - Python 3.x
-- **For `tkinter-csv-app`**:  
-  - Built-in: `tkinter`, `csv`, `os`, `random`, `heapq`, `pathlib`
+- **For `packet-sniffer-webapp`:**
+  - `Flask`, `Scapy`, `json`, `threading`
 - **For `dsp-labs`** (some scripts):  
   - `numpy`, `matplotlib` (for signal analysis and plotting)
+- **For `tkinter-csv-app`**:  
+  - Built-in: `tkinter`, `csv`, `os`, `random`, `heapq`, `pathlib`
+
