@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html lang = 'en''>
+<html lang = 'en'>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="5">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> My Packet Sniffer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Packet Sniffer WebApp</h1>
-    <button onclick="window.location.href='/start-sniffing'">Start Sniffing</button>
-</body>
-</html>
+    <h1>Packet Sniffer Dashboard</h1>
+    <p>
+      <a href="/start">▶️ Start</a> | 
+      <a href="/stop">⏹️ Stop</a> | 
+      <a href="/packet_log.json" download>📥 Download Log</a>
+    </p>
+  
+    <table>
+      <thead>
+        <tr><th>Time</th><th>Source</th><th>Destination</th><th>Protocol</th><th>Length</th></tr>
+      </thead>
+      <tbody>
+        {% for pkt in packets %}
+        <tr>
+          <td>{{ pkt.timestamp }}</td>
+          <td>{{ pkt.src }}</td>
+          <td>{{ pkt.dst }}</td>
+          <td>{{ pkt.proto }}</td>
+          <td>{{ pkt.length }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+  </html>
