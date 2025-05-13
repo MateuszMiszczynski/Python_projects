@@ -14,7 +14,6 @@ A web-based network packet sniffer built using **Flask** and **Scapy**. It allow
 - 🧵 Runs sniffing in a background thread (non-blocking Flask UI)
 - 📝 Logs traffic data to JSON (timestamp, IPs, protocol, length)
 - 🌐 Web dashboard with live updates and packet table
-- 📥 Log file download support
 
 **Tech Highlights:**
 - Python threading for asynchronous packet capture
