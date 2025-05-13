@@ -13,7 +13,6 @@ log_file = "logs/packet_log.json"
 
 
 def deteckt_packet_type(packet): # Funkcja służy do wyciągania z pakietów informacji o protokole
-    print("detect packter XXXXXXXXX")
     if packet.haslayer(DNS): # "packet" to obiekt pochodzący z bilbioteki scapy i reprezentuje pakiet
         return "DNS" # a funkcja .haslayer("xxx") sprawdza czy protokół "xxx"  jest w pakiecie co mowi nam o warstwie danego protokołu (np UDP TCP - warstwa transportowa)
     elif packet.haslayer(ICMP): # warstwa 
@@ -53,7 +52,6 @@ def packet_callabck(packet): # Za każdym razem gdy scappy.sniff() przechwyci pa
 
 
     # Zapis do logu JSON
-    print("Zapisuję pakiet do pliku... XXXXXXXXXXXXXXX")
     with open(log_file, "a") as f: # Otwieramy plik log_file i dopisujemy na końcu ("a" czyli append)
         f.write(json.dumps(pkt_summary) + "\n") # Zamieniamy słownik pkt_summary na JSON (tekst), dopisujemy go do pliku jako osobną linię
 
@@ -73,13 +71,11 @@ def start_sniffing(): # Uruchamia sniffowanie w osobnym wątku (żeby nie blokow
                          daemon=True # daemon=True: wątek automatycznie się kończy, gdy zamkniemy aplikację
                          )
     t.start()
-    print("Start XXXXXXXXXXXXXXXXXXX")
+
 
 def stop_sniffing():
     global sniffing
     sniffing = False # Flaga
-    print("Stop XXXXXXXXXXXXXXXxxxx")
 
 def get_recent_packets(): # Zwraca listę ostatnich pakietów (dla przeglądarki / GUI)
     return list(packet_buffer) # packet_buffer to globalna lista z podsumowaniami pakietów
-    print("get recent  XXXXXXXXXXXXXXXXXXXXXx")
