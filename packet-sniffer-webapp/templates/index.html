@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="15">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Packet Sniffer</title>
+    <title>Packet Sniffer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <style>
         table {
-            width: 100%;
+            width: 80%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 20px auto;
         }
 
         th, td {
@@ -35,14 +35,42 @@
         .controls {
             margin: 20px 0;
         }
+
+        /* Now let's style the buttons */
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-start {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-start:hover {
+            background-color: #45a049;
+        }
+
+        .btn-stop {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .btn-stop:hover {
+            background-color: #e53935;
+        }
     </style>
 </head>
 <body>
     <h1>Packet Sniffer Dashboard</h1>
     <div class="controls">
-        <a href="/start">▶️ Start</a> | 
-        <a href="/stop">⏹️ Stop</a> | 
-        <a href="/packet_log.json" download>📥 Download Log</a>
+        <a href="/start" class="btn btn-start">Start</a> | 
+        <a href="/stop" class="btn btn-stop">Stop</a>
     </div>
 
     <table>
