@@ -57,7 +57,7 @@ def packet_callabck(packet): # Za każdym razem gdy scappy.sniff() przechwyci pa
 
 
 def sniff_packets(): # Główna funkcja sniffująca pakiety
-    global sniffing # Globalna zmienna 
+    global sniffing # Globalna zmienna sniffing. Dzięki temu, jeśli w innej części programu ustawimy sniffing = False, ta funkcja też o tym "wie". To umożliwia np. zatrzymanie sniffera z innego wątku.
     sniffing = True # Flaga 
     sniff(  
         prn=packet_callabck, # dla każdego pakietu wywoła funkcję packet_callabck(packet)
