@@ -63,8 +63,6 @@ source venv/bin/activate
 # 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Run the app with administrator/root privileges
-# Packet sniffing uses raw sockets, which require elevated privileges.
 
 # On Linux/macOS:
 sudo python app.py
@@ -72,7 +70,7 @@ sudo python app.py
 # On Windows (run terminal as Administrator):
 python app.py
 
-# 5. Open your browser and go to:
+# 4. Open your browser and go to:
 http://127.0.0.1:5000/
 
 # Use the Start/Stop buttons to control the capture and download logs.
