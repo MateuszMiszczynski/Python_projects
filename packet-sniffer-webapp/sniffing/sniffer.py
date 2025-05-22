@@ -75,7 +75,7 @@ def start_sniffing(): # Uruchamia sniffowanie w osobnym wątku (żeby nie blokow
 
 def stop_sniffing():
     global sniffing
-    sniffing = False # Flaga
+    sniffing = False # Flaga    
 
 def get_recent_packets(): # Zwraca listę ostatnich pakietów (dla przeglądarki / GUI)
     return list(packet_buffer) # packet_buffer to globalna lista z podsumowaniami pakietów
