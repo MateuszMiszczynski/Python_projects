@@ -52,7 +52,6 @@
 ```bash
 # 1. Clone the repository
 git clone https://github.com/yourusername/packet-sniffer-webapp.git
-cd packet-sniffer-webapp
 
 # 2. Create and activate a virtual environment (recommended)
 
@@ -62,7 +61,6 @@ source venv/bin/activate
 
 # 3. Install dependencies
 pip install -r requirements.txt
-
 
 # On Linux/macOS:
 sudo python app.py
