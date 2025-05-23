@@ -3,14 +3,21 @@ import threading
 import json
 from datetime import time
 import time
+import socket
 
 
 
 sniffing = False
 packet_buffer = []
+packet_buffer_with_site = []
 max_buffer_size = 100
 log_file = "logs/packet_log.json"
+resolve_site = False # jeśli True, próbujemy rozpoznać site, jeśli False - nie
 
+
+def set_resolve_site(value: bool):
+    global resolve_site
+    resolve_site = value
 
 def deteckt_packet_type(packet): # Funkcja służy do wyciągania z pakietów informacji o protokole
     if packet.haslayer(DNS): # "packet" to obiekt pochodzący z bilbioteki scapy i reprezentuje pakiet
@@ -32,16 +39,37 @@ def deteckt_packet_type(packet): # Funkcja służy do wyciągania z pakietów in
 
 def packet_callabck(packet): # Za każdym razem gdy scappy.sniff() przechwyci pakiet to automatycznie wywołuje sie ta funkcja
     global packet_buffer # Zmienna globalna przechowująca ostatnie pakiety
-
+    global packet_buffer_with_site
     pkt_type = deteckt_packet_type(packet) # pod tą zmienną jest string np. "ICMP" , "TCP", "OTHER" - wczesniej omówiona funkcja 
-    pkt_summary = { #  Tworzymy słownik pkt_summary — czyli streszczenie pakietu
-        "timestamp" : time.strftime("%Y-%m-%d %H:%M:%S"), # time.strftime to aktualny czas i godzina
-        "src" : packet[IP].src if IP in packet else "N/A", # src źródłowy
-        "dst" : packet[IP].dst if IP in packet else "N/A", # dst to adres docelowy
-        "proto" : pkt_type, # protokół
-        "length" : len(packet) # długosc
-    }
+    if resolve_site:
+        site = "Unknown"
 
+        if IP in packet:
+            try:
+                site = socket.gethostbyaddr(packet[IP].dst)[0]
+            except socket.herror:
+                site = "Unknown"
+    
+        pkt_summary_with_site = { #  Tworzymy słownik pkt_summary — czyli streszczenie pakietu
+            "timestamp" : time.strftime("%Y-%m-%d %H:%M:%S"), # time.strftime to aktualny czas i godzina
+            "src" : packet[IP].src if IP in packet else "N/A", # src źródłowy
+            "dst" : packet[IP].dst if IP in packet else "N/A", # dst to adres docelowy
+            "site" : site,
+            "proto" : pkt_type, # protokół
+            "length" : len(packet) # długosc
+        }
+        packet_buffer_with_site.append(pkt_summary_with_site)
+        if len(packet_buffer_with_site) > max_buffer_size:
+            packet_buffer_with_site.pop(0)
+
+    pkt_summary= { #  Tworzymy słownik pkt_summary — czyli streszczenie pakietu
+            "timestamp" : time.strftime("%Y-%m-%d %H:%M:%S"), # time.strftime to aktualny czas i godzina
+            "src" : packet[IP].src if IP in packet else "N/A", # src źródłowy
+            "dst" : packet[IP].dst if IP in packet else "N/A", # dst to adres docelowy
+            "proto" : pkt_type, # protokół
+            "length" : len(packet) # długosc
+        }
+    
 
     # Bufor pakietow dla GUI
     packet_buffer.append(pkt_summary)
@@ -53,7 +81,10 @@ def packet_callabck(packet): # Za każdym razem gdy scappy.sniff() przechwyci pa
 
     # Zapis do logu JSON
     with open(log_file, "a") as f: # Otwieramy plik log_file i dopisujemy na końcu ("a" czyli append)
-        f.write(json.dumps(pkt_summary) + "\n") # Zamieniamy słownik pkt_summary na JSON (tekst), dopisujemy go do pliku jako osobną linię
+        if resolve_site:
+            f.write(json.dumps(packet_buffer_with_site) + "\n")
+        else:
+            f.write(json.dumps(pkt_summary) + "\n") # Zamieniamy słownik pkt_summary na JSON (tekst), dopisujemy go do pliku jako osobną linię
 
 
 def sniff_packets(): # Główna funkcja sniffująca pakiety
@@ -78,4 +109,7 @@ def stop_sniffing():
     sniffing = False # Flaga    
 
 def get_recent_packets(): # Zwraca listę ostatnich pakietów (dla przeglądarki / GUI)
-    return list(packet_buffer) # packet_buffer to globalna lista z podsumowaniami pakietów
+    if resolve_site:
+        return list(packet_buffer_with_site)
+    else:
+        return list(packet_buffer) # packet_buffer to globalna lista z podsumowaniami pakietów

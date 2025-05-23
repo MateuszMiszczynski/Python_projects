@@ -2,98 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="15">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Packet Sniffer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <style>
-        table {
-            width: 80%;
-            border-collapse: collapse;
-            margin: 20px auto;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        tr:hover {
-            background-color: #e0e0e0;
-        }
-
-        .controls {
-            margin: 20px 0;
-        }
-
-        
-        .btn {
-            padding: 10px 20px;
-            font-size: 16px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 0 10px;
-            display: inline-block;
-            text-align: center;
-        }
-
-        .btn-start {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .btn-start:hover {
-            background-color: #45a049;
-        }
-
-        .btn-stop {
-            background-color: #f44336;
-            color: white;
-        }
-
-        .btn-stop:hover {
-            background-color: #e53935;
-        }
-    </style>
 </head>
 <body>
     <h1>Packet Sniffer Dashboard</h1>
     <div class="controls">
         <a href="/start" class="btn btn-start">Start</a> | 
         <a href="/stop" class="btn btn-stop">Stop</a>
+        
     </div>
-
+<form method="POST" action="/toggle-site">
+    <label>
+        <input type="checkbox" name="resolve_site" value="true"
+               onchange="this.form.submit()" 
+               {% if resolve_site %}checked{% endif %}>
+        Show site names (but it will run slower)
+    </label>
+</form>
     <table>
         <thead>
-            <tr>
-                <th>Time</th>
-                <th>Source</th>
-                <th>Destination</th>
-                <th>Protocol</th>
-                <th>Length</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for pkt in packets %}
-                <tr>
-                    <td>{{ pkt.timestamp }}</td>
-                    <td>{{ pkt.src }}</td>
-                    <td>{{ pkt.dst }}</td>
-                    <td>{{ pkt.proto }}</td>
-                    <td>{{ pkt.length }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
+    <tr>
+        <th>Time</th>
+        <th>Source</th>
+        <th>Destination</th>
+        {% if resolve_site %}
+        <th>Site</th>
+        {% endif %}
+        <th>Protocol</th>
+        <th>Length</th>
+    </tr>
+</thead>
+<tbody>
+    {% for pkt in packets %}
+    <tr>
+        <td>{{ pkt.timestamp }}</td>
+        <td>{{ pkt.src }}</td>
+        <td>{{ pkt.dst }}</td>
+        {% if resolve_site %}
+        <td>{{ pkt.site }}</td>
+        {% endif %}
+        <td>{{ pkt.proto }}</td>
+        <td>{{ pkt.length }}</td>
+    </tr>
+    {% endfor %}
+</tbody>
     </table>
 </body>
 </html>
