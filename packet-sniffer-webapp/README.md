@@ -57,7 +57,7 @@ git clone https://github.com/yourusername/packet-sniffer-webapp.git
 
 # On Linux / macOS / Git Bash:
 cd <path_to_packet-sniffer-webapp>
-source venv/bin/activate
+source venv/Scripts/activate
 
 # 3. Install dependencies
 pip install -r requirements.txt
@@ -72,4 +72,5 @@ python app.py
 http://127.0.0.1:5000/
 
 # Use the Start/Stop buttons to control the see the results.
+
 
